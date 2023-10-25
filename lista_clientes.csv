@@ -1,0 +1,10 @@
+user_id,nome,numero_celular,operadora_celular,plano_tipo,gasto_por_mes,news
+1,Bruno,(12)99887-6655,Claro,con,47,
+2,Karen,(21)89532-4532,Oi,pre,30,
+3,Anna,(23)23856-1123,Tim,pre,20,
+4,Allex,(97)93245-5588,Vivo,pos,199,
+5,Gisele,(52)88532-1895,Oi,con,69,
+6,Jaiane,(62)96324-1325,Vivo,pos,329,
+7,Barbara,(81)23536-9898,Tim,pre,25,
+8,Alexis,(11)88532-1532,Oi,con,59,
+9,Rafael,(13)96252-2356,Vivo,pre,10,
