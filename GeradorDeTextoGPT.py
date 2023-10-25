@@ -24,7 +24,8 @@ Valor gasto por mes: {df[id]['gasto_por_mes']}
     return response
     
 #TRANSFORM
-openai_api_key = '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'
+#coloque sua chave aqui:
+openai_api_key = ''
 openai.api_key = openai_api_key
 
 def generate_ai_news(user):
