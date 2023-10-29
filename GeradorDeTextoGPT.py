@@ -13,7 +13,7 @@ with open(filename,'r') as data:
 id_usuario = int(input(f'De qual usuário deseja escrever uma mensagem? (1 a {len(df)}, 0 para todos) '))
 
 def get_user(id):
-    if id_usuario < 0:
+    if id_usuario > 0:
         id -= 1
     response = (f'''ID do cliente: {df[id]['user_id']}
 Nome do cliente: {df[id]['nome']}
