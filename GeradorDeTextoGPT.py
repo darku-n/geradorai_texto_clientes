@@ -13,19 +13,18 @@ with open(filename,'r') as data:
 id_usuario = int(input(f'De qual usuário deseja escrever uma mensagem? (1 a {len(df)}, 0 para todos) '))
 
 def get_user(id):
-    id -= 1
+    if id_usuario < 0:
+        id -= 1
     response = (f'''ID do cliente: {df[id]['user_id']}
 Nome do cliente: {df[id]['nome']}
 Número do cliente: {df[id]['numero_celular']}                
 Operadora do cliente: {df[id]['operadora_celular']}
 Plano de celular do cliente: {df[id]['plano_tipo']}    
-Valor gasto por mes: {df[id]['gasto_por_mes']}            
-''')
+Valor gasto por mes: {df[id]['gasto_por_mes']}  ''')
     return response
     
 #TRANSFORM
-#coloque sua chave aqui:
-openai_api_key = ''
+openai_api_key = str(input('Cole sua chave da OpenAI: '))
 openai.api_key = openai_api_key
 
 def generate_ai_news(user):
@@ -78,14 +77,24 @@ def generate_ai_news(user):
 if 0 < id_usuario <= len(df):
     news = generate_ai_news(id_usuario)
     df[id_usuario - 1]['news'] = (news)
+    print(get_user(id_usuario))
+    print(f'Mensagem para o cliente: {news}')
+    print('')
+    print('Gerando o arquivo...')
+    sleep(5)
 elif id_usuario == 0:
     for c in range(0, len(df)):
         news = generate_ai_news(c + 1)
         df[c]['news'] = (news)
-        print(df[c]['nome'], ':', news)
+        print(get_user(c))
+        print(f'Mensagem para o cliente: {news}')
         sleep(20)
-
+        print('')
+    print('Gerando o arquivo...')
+    sleep(5)
 
 df_atualizado = pd.DataFrame(df)
 print(df_atualizado)
 df_atualizado.to_csv(filename, index=False)
+print('Arquivo CSV criado.')
+input()
